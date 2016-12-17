@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taeroen.github.io/"/>
-  <updated>2016-12-17T15:13:02.333Z</updated>
+  <updated>2016-12-17T15:18:24.740Z</updated>
   <id>https://taeroen.github.io/</id>
   
   <author>
@@ -20,22 +20,18 @@
     <link href="https://taeroen.github.io/2016/12/17/Debian8-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
     <id>https://taeroen.github.io/2016/12/17/Debian8-内核编译/</id>
     <published>2016-12-17T05:30:48.000Z</published>
-    <updated>2016-12-17T15:13:02.333Z</updated>
+    <updated>2016-12-17T15:18:24.740Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Debian8-内核编译"><a href="#Debian8-内核编译" class="headerlink" title="Debian8 内核编译"></a>Debian8 内核编译</h1><p>本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。</p>
 <h2 id="1-准备编译环境"><a href="#1-准备编译环境" class="headerlink" title="1 准备编译环境"></a>1 准备编译环境</h2><p>安装编译工具链</p>
-<p>‘’’bash</p>
-<h1 id="apt-get-install-build-essential-kernel-package-libncurses5-dev-y"><a href="#apt-get-install-build-essential-kernel-package-libncurses5-dev-y" class="headerlink" title="apt-get install build-essential kernel-package libncurses5-dev -y"></a>apt-get install build-essential kernel-package libncurses5-dev -y</h1><p>‘’’</p>
-<h2 id="2-下载Debian发行版内核源码"><a href="#2-下载Debian发行版内核源码" class="headerlink" title="2 下载Debian发行版内核源码"></a>2 下载Debian发行版内核源码</h2><p>‘’’bash</p>
-<h1 id="apt-get-install-linux-source-3-16-y"><a href="#apt-get-install-linux-source-3-16-y" class="headerlink" title="apt-get install linux-source-3.16 -y"></a>apt-get install linux-source-3.16 -y</h1><p>‘’’</p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># apt-get install build-essential kernel-package libncurses5-dev -y</span></div></pre></td></tr></table></figure><p></p>
+<h2 id="2-下载Debian发行版内核源码"><a href="#2-下载Debian发行版内核源码" class="headerlink" title="2 下载Debian发行版内核源码"></a>2 下载Debian发行版内核源码</h2><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># apt-get install linux-source-3.16 -y</span></div></pre></td></tr></table></figure><p></p>
 <p>内核源码包安装完成后下载到/user/src目录下</p>
-<p>‘’’bash<br>$ ls /usr/src -al | grep linux-source-3.16<br>rw-r–r– 1 root root 81957884 - - - linux-source-3.16.tar.xz<br>‘’’</p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls /usr/src -al | grep linux-source-3.16</div><div class="line">rw-r--r-- 1 root root 81957884 - - - linux-source-3.16.tar.xz</div></pre></td></tr></table></figure><p></p>
 <p>解压源码包</p>
-<p>‘’’bash<br>$ mkdir -p ~/build/kernel<br>$ cd ~/build/kernel<br>$ tar -Jxvf /user/src/linux-source-3.16.tar.xz<br>‘’’</p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p ~/build/kernel</div><div class="line">$ <span class="built_in">cd</span> ~/build/kernel</div><div class="line">$ tar -Jxvf /user/src/linux-source-3.16.tar.xz</div></pre></td></tr></table></figure><p></p>
 <h2 id="3-内核编译"><a href="#3-内核编译" class="headerlink" title="3 内核编译"></a>3 内核编译</h2><p>按需求更改配置,如果不想更改配置，直接双击ESC保存.config退出即可</p>
-<p>‘’’bash<br>$ make menuconfig<br>‘’’    </p>
-<p>编译内核</p>
-<p>‘’’bash<br>$ make -deb-pjg<br>‘’’</p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ make menuconfig</div><div class="line">```	</div><div class="line"></div><div class="line">编译内核</div><div class="line"></div><div class="line">```bash</div><div class="line">$ make -deb-pjg</div></pre></td></tr></table></figure><p></p>
 ]]></content>
     
     <summary type="html">
@@ -55,13 +51,13 @@
     <updated>2016-12-17T13:26:11.415Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p></p>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p></p>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p></p>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span><a class="code-caption-copy">Copy Code</a></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p></p>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
     
