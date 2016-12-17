@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/17/Debian8-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2016-12-17T14:06:52.111Z</lastmod>
+    <data>
+        <display>
+        <title>Debian8 内核编译</title>
+        <pubTime>2016-12-17T05:30:48.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/12/16/hello-world/</loc>
+    <lastmod>2016-12-17T13:26:11.415Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-12-16T13:43:47.506Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
