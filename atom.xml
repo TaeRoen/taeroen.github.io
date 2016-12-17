@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-17T14:11:12.859Z</updated>
+  <updated>2016-12-17T14:14:03.904Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/12/17/Debian8-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
     <id>http://yoursite.com/2016/12/17/Debian8-内核编译/</id>
     <published>2016-12-17T05:30:48.000Z</published>
-    <updated>2016-12-17T14:11:12.859Z</updated>
+    <updated>2016-12-17T14:14:03.904Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Debian8-内核编译"><a href="#Debian8-内核编译" class="headerlink" title="Debian8 内核编译"></a>Debian8 内核编译</h1><p>本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。</p>
 <h2 id="1-准备编译环境"><a href="#1-准备编译环境" class="headerlink" title="1 准备编译环境"></a>1 准备编译环境</h2><p>安装编译工具链</p>
@@ -32,10 +32,10 @@
 <p>解压源码包</p>
 <p><code><br>$ mkdir -p ~/build/kernel<br>$ cd ~/build/kernel<br>$ tar -Jxvf /user/src/linux-source-3.16.tar.xz<br></code></p>
 <h2 id="3-内核编译"><a href="#3-内核编译" class="headerlink" title="3 内核编译"></a>3 内核编译</h2><p>按需求更改配置</p>
-<p><code><br>make menuconfig<br></code></p>
+<p><code><br>$ make menuconfig<br></code></p>
 <p>如果不想更改配置，直接双击ESC保存.config退出即可</p>
 <p>编译内核</p>
-<p><code><br>make -deb-pjg<br></code>    </p>
+<p><code><br>$ make -deb-pjg<br></code>    </p>
 ]]></content>
     
     <summary type="html">
