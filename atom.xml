@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-16T13:43:47.507Z</updated>
+  <updated>2016-12-17T05:32:48.791Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Debian8 内核编译</title>
+    <link href="http://yoursite.com/2016/12/17/Debian8-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
+    <id>http://yoursite.com/2016/12/17/Debian8-内核编译/</id>
+    <published>2016-12-17T05:30:48.000Z</published>
+    <updated>2016-12-17T05:32:48.791Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Debian8-内核编译"><a href="#Debian8-内核编译" class="headerlink" title="Debian8 内核编译"></a>Debian8 内核编译</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Debian8-内核编译&quot;&gt;&lt;a href=&quot;#Debian8-内核编译&quot; class=&quot;headerlink&quot; title=&quot;Debian8 内核编译&quot;&gt;&lt;/a&gt;Debian8 内核编译&lt;/h1&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
