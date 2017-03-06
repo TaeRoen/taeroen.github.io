@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taeroen.github.io/"/>
-  <updated>2016-12-17T15:24:37.145Z</updated>
+  <updated>2017-03-06T06:15:10.758Z</updated>
   <id>https://taeroen.github.io/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下常见压缩文件的相关操作</title>
+    <link href="https://taeroen.github.io/posts/988aac3/"/>
+    <id>https://taeroen.github.io/posts/988aac3/</id>
+    <published>2017-03-06T06:11:45.000Z</published>
+    <updated>2017-03-06T06:15:10.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Linux下常见压缩文件的相关操作</p>
+<p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip.7z,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p>
+<table>
+<thead>
+<tr>
+<th>扩展文件名</th>
+<th>解压缩</th>
+<th>解压缩到指定目录</th>
+<th>压缩</th>
+<th>压缩到指定目录</th>
+<th>可选参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tar.gz</td>
+</tr>
+<tr>
+<td>tar</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#Linux下常见压缩文件的相关操作&lt;/p&gt;
+&lt;p&gt;Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip.7z,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Debian8 内核编译</title>
