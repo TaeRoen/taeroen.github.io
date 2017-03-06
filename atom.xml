@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taeroen.github.io/"/>
-  <updated>2017-03-06T06:04:45.279Z</updated>
+  <updated>2016-12-17T15:24:37.145Z</updated>
   <id>https://taeroen.github.io/</id>
   
   <author>
@@ -14,57 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Linux下常见打包及压缩命令</title>
-    <link href="https://taeroen.github.io/posts/6669313d/"/>
-    <id>https://taeroen.github.io/posts/6669313d/</id>
-    <published>2017-03-06T05:57:27.000Z</published>
-    <updated>2017-03-06T06:04:45.279Z</updated>
-    
-    <content type="html"><![CDATA[<p>#</p>
-<table>
-<thead>
-<tr>
-<th>扩展文件名</th>
-<th>解压缩</th>
-<th>解压缩到指定目录</th>
-<th>压缩</th>
-<th>压缩到指定目录</th>
-<th>可选参数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tar.gz</td>
-</tr>
-<tr>
-<td>tar</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;#&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;扩展文件名&lt;/th&gt;
-&lt;th&gt;解压缩&lt;/th&gt;
-&lt;th&gt;解压缩到指定目录&lt;/th&gt;
-&lt;th&gt;压缩&lt;/th&gt;
-&lt;th&gt;压缩到指定目录&lt;/th&gt;
-&lt;th&gt;可选参数&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Debian8 内核编译</title>
