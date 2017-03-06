@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://taeroen.github.io/"/>
-  <updated>2017-03-06T06:15:10.758Z</updated>
+  <updated>2017-03-06T07:05:43.286Z</updated>
   <id>https://taeroen.github.io/</id>
   
   <author>
@@ -20,10 +20,14 @@
     <link href="https://taeroen.github.io/posts/988aac3/"/>
     <id>https://taeroen.github.io/posts/988aac3/</id>
     <published>2017-03-06T06:11:45.000Z</published>
-    <updated>2017-03-06T06:15:10.758Z</updated>
+    <updated>2017-03-06T07:05:43.286Z</updated>
     
-    <content type="html"><![CDATA[<p>#Linux下常见压缩文件的相关操作</p>
-<p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip.7z,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p>
+    <content type="html"><![CDATA[<h1 id="Linux下常见压缩文件的相关操作"><a href="#Linux下常见压缩文件的相关操作" class="headerlink" title="Linux下常见压缩文件的相关操作"></a>Linux下常见压缩文件的相关操作</h1><p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p>
+<ul>
+<li>源文件:src.xxx</li>
+<li>目标文件:dest.xxx</li>
+<li>解压到指定目录:/tmp</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -31,16 +35,44 @@
 <th>解压缩</th>
 <th>解压缩到指定目录</th>
 <th>压缩</th>
-<th>压缩到指定目录</th>
 <th>可选参数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>tar.gz</td>
+<td>zip</td>
+<td>unzip src.zip</td>
+<td></td>
+<td>unzip src.zip dest</td>
+<td></td>
+</tr>
+<tr>
+<td>gz</td>
+<td>gnuzip src.gz</td>
+<td></td>
+<td>gzip src</td>
+<td></td>
 </tr>
 <tr>
 <td>tar</td>
+<td>tar xf src.tar</td>
+<td>tar xf src.tar -C /tmp</td>
+<td>tar cf dest.tar src</td>
+<td>-v 显示过程</td>
+</tr>
+<tr>
+<td>tar.gz/tgz</td>
+<td>tar zxf src.tar.gz</td>
+<td>tar zxf dest.tar.gz -C /tmp</td>
+<td>tar zcf dest.tar.gz src</td>
+<td>-v 显示过程</td>
+</tr>
+<tr>
+<td>tar.bz2</td>
+<td>tar jxf src.tar.bz2</td>
+<td>tar jxf dest.tar.bz2 -C /tmp</td>
+<td>tar jcf dest.tar.bz2 src</td>
+<td>-v 显示过程</td>
 </tr>
 </tbody>
 </table>
@@ -48,11 +80,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;#Linux下常见压缩文件的相关操作&lt;/p&gt;
-&lt;p&gt;Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip.7z,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
+      &lt;h1 id=&quot;Linux下常见压缩文件的相关操作&quot;&gt;&lt;a href=&quot;#Linux下常见压缩文件的相关操作&quot; class=&quot;headerlink&quot; title=&quot;Linux下常见压缩文件的相关操作&quot;&gt;&lt;/a&gt;Linux下常见压缩文件的相关操作&lt;/h1&gt;&lt;p&gt;Linux常见的打包
     
     </summary>
     
