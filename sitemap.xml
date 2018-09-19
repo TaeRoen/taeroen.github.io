@@ -2,23 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taeroen.github.io/posts/988aac3/</loc>
+    <loc>https://taeroen.github.io/README.html</loc>
     
-    <lastmod>2017-03-06T07:05:43.286Z</lastmod>
+    <lastmod>2018-09-19T09:29:05.712Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taeroen.github.io/posts/53764/</loc>
+    <loc>https://taeroen.github.io/categories/index.html</loc>
     
-    <lastmod>2016-12-17T15:24:37.145Z</lastmod>
+    <lastmod>2018-09-19T08:37:30.440Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taeroen.github.io/tags/index.html</loc>
+    
+    <lastmod>2018-09-19T08:30:27.593Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taeroen.github.io/about/index.html</loc>
     
-    <lastmod>2016-12-17T15:05:03.365Z</lastmod>
+    <lastmod>2018-09-19T08:30:18.506Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taeroen.github.io/post/2017-03-06-%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAgitlab%E6%9C%8D%E5%8A%A1.html</loc>
+    
+    <lastmod>2018-09-19T06:58:23.919Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taeroen.github.io/post/2017-03-06-Linux%E4%B8%8B%E5%B8%B8%E8%A7%81%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html</loc>
+    
+    <lastmod>2018-09-19T06:58:06.004Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taeroen.github.io/post/2016-12-17-Debian8-%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91.html</loc>
+    
+    <lastmod>2018-09-19T06:57:48.671Z</lastmod>
     
   </url>
   
