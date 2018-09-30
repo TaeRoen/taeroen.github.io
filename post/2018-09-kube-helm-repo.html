@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="helm私有charts仓库进阶镜像官方仓库在了解了chart的基本组成结构之后，自己开始动手开始写chart，这时候还是想找一些官方项目看看。官方仓库里面有很多参考，把官方仓库的熟悉项目的chart都看一遍，跑一遍，再尝试修改一遍，其实也就对chart实际上了解的差不多了，剩下的就是到实际项目中实践了。
+然而官方仓库托管在了google上，这就带来了一个科学上网的问题。本机的还好说，可是服务器上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="helm私有charts仓库进阶">
+<meta property="og:url" content="https://taeroen.github.io/post/2018-09-kube-helm-repo.html">
+<meta property="og:site_name" content="TaeRoen's Blog">
+<meta property="og:description" content="helm私有charts仓库进阶镜像官方仓库在了解了chart的基本组成结构之后，自己开始动手开始写chart，这时候还是想找一些官方项目看看。官方仓库里面有很多参考，把官方仓库的熟悉项目的chart都看一遍，跑一遍，再尝试修改一遍，其实也就对chart实际上了解的差不多了，剩下的就是到实际项目中实践了。
+然而官方仓库托管在了google上，这就带来了一个科学上网的问题。本机的还好说，可是服务器上">
+<meta property="og:updated_time" content="2018-09-30T03:18:21.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="helm私有charts仓库进阶">
+<meta name="twitter:description" content="helm私有charts仓库进阶镜像官方仓库在了解了chart的基本组成结构之后，自己开始动手开始写chart，这时候还是想找一些官方项目看看。官方仓库里面有很多参考，把官方仓库的熟悉项目的chart都看一遍，跑一遍，再尝试修改一遍，其实也就对chart实际上了解的差不多了，剩下的就是到实际项目中实践了。
+然而官方仓库托管在了google上，这就带来了一个科学上网的问题。本机的还好说，可是服务器上">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TaeRoen's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://taeroen.github.io/post/2018-09-kube-helm-repo.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>helm私有charts仓库进阶 | TaeRoen's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TaeRoen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://taeroen.github.io/post/2018-09-kube-helm-repo.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TaeRoen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://oic6rx1f5.qnssl.com/blog/20161217/230138968.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TaeRoen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">helm私有charts仓库进阶
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-30 10:31:32 / 修改时间：11:18:21" itemprop="dateCreated datePublished" datetime="2018-09-30T10:31:32+08:00">2018-09-30</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="helm私有charts仓库进阶"><a href="#helm私有charts仓库进阶" class="headerlink" title="helm私有charts仓库进阶"></a>helm私有charts仓库进阶</h1><h2 id="镜像官方仓库"><a href="#镜像官方仓库" class="headerlink" title="镜像官方仓库"></a>镜像官方仓库</h2><p>在了解了chart的基本组成结构之后，自己开始动手开始写chart，这时候还是想找一些官方项目看看。官方仓库里面有很多参考，把官方仓库的熟悉项目的chart都看一遍，跑一遍，再尝试修改一遍，其实也就对chart实际上了解的差不多了，剩下的就是到实际项目中实践了。</p>
+<p>然而官方仓库托管在了google上，这就带来了一个科学上网的问题。本机的还好说，可是服务器上，工具链上就麻烦了，还涉及到内网的问题，所以一开始就想把官方仓库拖下来。</p>
+<p>首先看一下官方仓库的结构，就一个index.yaml，里面是实际tgz包的地址，对托仓库实在是太友好了。</p>
+<p>先把yaml文件下载下来:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ADDR_PORT为可以科学上网的http代理的地址 </div><div class="line">export https_proxy=http://$&#123;ADDR_PORT&#125;/</div><div class="line">mkdir helm-mirror &amp;&amp; cd helm-mirror</div><div class="line">wget https://kubernetes-charts.storage.googleapis.com/index.yaml -O offical-index.yaml</div></pre></td></tr></table></figure><p></p>
+<p>看一下yaml文件中chart的下载路径在哪:</p>
+<p></p><p class="code-caption" data-lang="yaml" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> v1</div><div class="line"><span class="attr">entries:</span></div><div class="line"><span class="attr">  acs-engine-autoscaler:</span></div><div class="line"><span class="attr">  - apiVersion:</span> v1</div><div class="line"><span class="attr">    appVersion:</span> <span class="number">2.1</span><span class="number">.1</span></div><div class="line"><span class="attr">    created:</span> <span class="number">2018</span><span class="bullet">-09</span><span class="bullet">-30</span>T01:<span class="number">26</span>:<span class="number">39.918358983</span>Z</div><div class="line"><span class="attr">    description:</span> Scales worker nodes within agent pools</div><div class="line"><span class="attr">    digest:</span> <span class="number">5904</span>caae456eecd1fed0a5d58f4a6f46e1fe97f954c4467e49fc80f91d912a10</div><div class="line"><span class="attr">    home:</span> https://github.com/wbuchwalter/Kubernetes-acs-engine-autoscaler</div><div class="line"><span class="attr">    icon:</span> https://github.com/kubernetes/kubernetes/blob/master/logo/logo.png</div><div class="line"><span class="attr">    maintainers:</span></div><div class="line"><span class="attr">    - email:</span> ritazh@microsoft.com</div><div class="line"><span class="attr">      name:</span> ritazh</div><div class="line"><span class="attr">    - email:</span> wibuch@microsoft.com</div><div class="line"><span class="attr">      name:</span> wbuchwalter</div><div class="line"><span class="attr">    name:</span> acs-engine-autoscaler</div><div class="line"><span class="attr">    sources:</span></div><div class="line"><span class="attr">    - https:</span>//github.com/wbuchwalter/Kubernetes-acs-engine-autoscaler</div><div class="line"><span class="attr">    urls:</span></div><div class="line"><span class="attr">    - https:</span>//kubernetes-charts.storage.googleapis.com/acs-engine-autoscaler<span class="bullet">-2.2</span><span class="number">.0</span>.tgz</div><div class="line"><span class="attr">    version:</span> <span class="number">2.2</span><span class="number">.0</span></div></pre></td></tr></table></figure><p></p>
+<p>下载地址太容易定位了，连yaml解析都懒得弄了，直接grep解决吧:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 将所有获取到地址保存到helm-repo.list</div><div class="line">cat offical-index.yaml | grep &quot;tgz&quot; | awk &apos;&#123;print $2&#125;&apos; &gt;&gt; helm-repo.list</div></pre></td></tr></table></figure><p></p>
+<p>下载全部的chart:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir helm-repo</div><div class="line">cd helm-repo</div><div class="line">wget -c -t 3 -T 30 -i ../helm-repo.list</div></pre></td></tr></table></figure><p></p>
+<p>helm自带命令可以生成index.yaml，这里就不需要使用sed来更改里面的地址了，当然，我这里指定的地址是我演示的地址，按需要换成实际的地址:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">helm repo index helm-repo --url http://127.0.0.1:8001/</div></pre></td></tr></table></figure><p></p>
+<p>启动web服务，这里就直接使用docker启动了nginx服务器:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run -d --name helm-mirror -v $(pwd)/helm-repo:/usr/share/nginx/html -p 8001:80 nginx</div></pre></td></tr></table></figure><p></p>
+<p>最后，测试一下repo，如果执行成功就可以了:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">helm repo add mirror http://127.0.0.1:8001/</div><div class="line">helm repo update</div><div class="line">helm repo fect mirror/mysql</div></pre></td></tr></table></figure><p></p>
+<p>同时，为了方便，下面贴出了上述命令汇总的获取脚本和更新脚本，更改部分变量即可:</p>
+<p></p><p class="code-caption" data-lang="shell" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># fetch.sh</div><div class="line">#!/bin/sh</div><div class="line">https_proxy=your proxy addr</div><div class="line">mkdir helm-mirror</div><div class="line">cd helm-mirror</div><div class="line">wget https://kubernetes-charts.storage.googleapis.com/index.yaml -O offical-index.yaml</div><div class="line">cat offical-index.yaml | grep &quot;tgz&quot; | awk &apos;&#123;print $2&#125;&apos; &gt;&gt; helm-repo.list</div><div class="line">mkdir helm-repo</div><div class="line">cd helm-repo</div><div class="line">wget -c -t 3 -T 30 -i ../helm-repo.list</div><div class="line">helm repo index helm-repo --url http://127.0.0.1:8001/</div><div class="line">docker run -d --name helm-mirror -v $(pwd)/helm-repo:/usr/share/nginx/html -p 8001:80 nginx</div><div class="line"></div><div class="line">#update.sh</div><div class="line">#!/bin/sh</div><div class="line">https_proxy=your proxy addr</div><div class="line">cd helm-mirror</div><div class="line">rm offical-index.yaml helm-repo.list</div><div class="line">wget https://kubernetes-charts.storage.googleapis.com/index.yaml -O offical-index.yaml</div><div class="line">cat offical-index.yaml | grep &quot;tgz&quot; | awk &apos;&#123;print $2&#125;&apos; &gt;&gt; helm-repo.list</div><div class="line">cd helm-repo</div><div class="line">wget -c -t 3 -T 30 -i ../helm-repo.list</div><div class="line">helm repo index helm-repo --url http://127.0.0.1:8001/</div><div class="line">docker restart helm-mirror</div></pre></td></tr></table></figure><p></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kubernetes/" rel="tag"># kubernetes</a>
+          
+            <a href="/tags/helm/" rel="tag"># helm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/2017-03-gitlab-docker.html" rel="next" title="使用docker搭建gitlab服务">
+                <i class="fa fa-chevron-left"></i> 使用docker搭建gitlab服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://oic6rx1f5.qnssl.com/blog/20161217/230138968.jpg"
+                alt="TaeRoen" />
+            
+              <p class="site-author-name" itemprop="name">TaeRoen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#helm私有charts仓库进阶"><span class="nav-number">1.</span> <span class="nav-text">helm私有charts仓库进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像官方仓库"><span class="nav-number">1.1.</span> <span class="nav-text">镜像官方仓库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TaeRoen</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
