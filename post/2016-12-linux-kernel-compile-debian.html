@@ -15,10 +15,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -39,8 +39,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.2">
@@ -115,34 +115,27 @@
 
 
 
-  <meta name="description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。
-1 准备编译环境安装编译工具链
-1# apt-get install build-essential kernel-package libncurses5-dev -y
-2 下载Debian发行版内核源码1# apt-get install linux-s">
+  <meta name="description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。 1 准备编译环境安装编译工具链 1# apt-get install build-essential kernel-package libncurses5-dev -y 2 下载Debian发行版内核源码1# apt-get install linux-s">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debian8 内核编译">
 <meta property="og:url" content="https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html">
-<meta property="og:site_name" content="TaeRoen's Blog">
-<meta property="og:description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。
-1 准备编译环境安装编译工具链
-1# apt-get install build-essential kernel-package libncurses5-dev -y
-2 下载Debian发行版内核源码1# apt-get install linux-s">
-<meta property="og:updated_time" content="2018-09-30T03:17:21.205Z">
+<meta property="og:site_name" content="TaeRoen&#39;s Blog">
+<meta property="og:description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。 1 准备编译环境安装编译工具链 1# apt-get install build-essential kernel-package libncurses5-dev -y 2 下载Debian发行版内核源码1# apt-get install linux-s">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-30T03:17:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debian8 内核编译">
-<meta name="twitter:description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。
-1 准备编译环境安装编译工具链
-1# apt-get install build-essential kernel-package libncurses5-dev -y
-2 下载Debian发行版内核源码1# apt-get install linux-s">
+<meta name="twitter:description" content="Debian8 内核编译本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。 1 准备编译环境安装编译工具链 1# apt-get install build-essential kernel-package libncurses5-dev -y 2 下载Debian发行版内核源码1# apt-get install linux-s">
 
 
 
-  <link rel="alternate" href="/atom.xml" title="TaeRoen's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="TaeRoen's Blog" type="application/atom+xml">
 
 
 
 
-  <link rel="canonical" href="https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html"/>
+  <link rel="canonical" href="https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html">
 
 
 
@@ -192,7 +185,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -202,7 +195,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -238,7 +231,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -246,7 +239,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
   </li>
         
         
@@ -254,7 +247,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
   </li>
         
         
@@ -262,7 +255,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
   </li>
         
         
@@ -270,7 +263,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
 
       
@@ -316,20 +309,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TaeRoen">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://oic6rx1f5.qnssl.com/blog/20161217/230138968.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="TaeRoen's Blog">
     </span>
 
@@ -386,7 +379,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -397,7 +390,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
 
                 
                 
@@ -454,16 +447,16 @@
       
         <h1 id="Debian8-内核编译"><a href="#Debian8-内核编译" class="headerlink" title="Debian8 内核编译"></a>Debian8 内核编译</h1><p>本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。</p>
 <h2 id="1-准备编译环境"><a href="#1-准备编译环境" class="headerlink" title="1 准备编译环境"></a>1 准备编译环境</h2><p>安装编译工具链</p>
-<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># apt-get install build-essential kernel-package libncurses5-dev -y</span></div></pre></td></tr></table></figure><p></p>
-<h2 id="2-下载Debian发行版内核源码"><a href="#2-下载Debian发行版内核源码" class="headerlink" title="2 下载Debian发行版内核源码"></a>2 下载Debian发行版内核源码</h2><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># apt-get install linux-source-3.16 -y</span></div></pre></td></tr></table></figure><p></p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt-get install build-essential kernel-package libncurses5-dev -y</span></span><br></pre></td></tr></table></figure><p></p>
+<h2 id="2-下载Debian发行版内核源码"><a href="#2-下载Debian发行版内核源码" class="headerlink" title="2 下载Debian发行版内核源码"></a>2 下载Debian发行版内核源码</h2><p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apt-get install linux-source-3.16 -y</span></span><br></pre></td></tr></table></figure><p></p>
 <p>内核源码包安装完成后下载到/user/src目录下</p>
-<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls /usr/src -al | grep linux-source-3.16</div><div class="line">rw-r--r-- 1 root root 81957884 - - - linux-source-3.16.tar.xz</div></pre></td></tr></table></figure><p></p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls /usr/src -al | grep linux-source-3.16</span><br><span class="line">rw-r--r-- 1 root root 81957884 - - - linux-source-3.16.tar.xz</span><br></pre></td></tr></table></figure><p></p>
 <p>解压源码包</p>
-<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p ~/build/kernel</div><div class="line">$ <span class="built_in">cd</span> ~/build/kernel</div><div class="line">$ tar -Jxvf /user/src/linux-source-3.16.tar.xz</div></pre></td></tr></table></figure><p></p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/build/kernel</span><br><span class="line">$ <span class="built_in">cd</span> ~/build/kernel</span><br><span class="line">$ tar -Jxvf /user/src/linux-source-3.16.tar.xz</span><br></pre></td></tr></table></figure><p></p>
 <h2 id="3-内核编译"><a href="#3-内核编译" class="headerlink" title="3 内核编译"></a>3 内核编译</h2><p>按需求更改配置,如果不想更改配置，直接双击ESC保存.config退出即可</p>
-<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make menuconfig</div></pre></td></tr></table></figure><p></p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure><p></p>
 <p>编译内核</p>
-<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ make deb-pjg</div></pre></td></tr></table></figure><p></p>
+<p></p><p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make deb-pjg</span><br></pre></td></tr></table></figure><p></p>
 
       
     </div>
@@ -565,11 +558,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://oic6rx1f5.qnssl.com/blog/20161217/230138968.jpg"
-                alt="TaeRoen" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="TaeRoen">
             
               <p class="site-author-name" itemprop="name">TaeRoen</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -699,7 +690,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -713,7 +704,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 

@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://taeroen.github.io/post/2018-09-kube-helm-repo.html</loc>
-    <lastmod>2018-09-30T03:21:10.413Z</lastmod>
+    <lastmod>2018-09-30T03:21:10.000Z</lastmod>
     <data>
         <display>
         <title>helm私有charts仓库进阶</title>
@@ -26,19 +26,19 @@
 
     
   <url>
-    <loc>https://taeroen.github.io/post/2017-03-linux-misc-command.html</loc>
-    <lastmod>2018-09-30T03:17:21.206Z</lastmod>
+    <loc>https://taeroen.github.io/post/2017-03-gitlab-docker.html</loc>
+    <lastmod>2018-09-30T03:17:21.000Z</lastmod>
     <data>
         <display>
-        <title>Linux下常见压缩文件的相关操作</title>
-        <pubTime>2017-03-06T06:11:45.000Z</pubTime>
+        <title>使用docker搭建gitlab服务</title>
+        <pubTime>2017-03-06T14:18:48.000Z</pubTime>
         
-        <tag>linux</tag>
+        <tag>docker</tag>
          
          
            
              
-              <breadCrumb title="linux" url="https://taeroen.github.io/categories/linux/"/>
+              <breadCrumb title="git" url="https://taeroen.github.io/categories/git/"/>
           
         </display>
     </data>
@@ -47,7 +47,7 @@
     
   <url>
     <loc>https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html</loc>
-    <lastmod>2018-09-30T03:17:21.205Z</lastmod>
+    <lastmod>2018-09-30T03:17:21.000Z</lastmod>
     <data>
         <display>
         <title>Debian8 内核编译</title>
@@ -66,19 +66,19 @@
 
     
   <url>
-    <loc>https://taeroen.github.io/post/2017-03-gitlab-docker.html</loc>
-    <lastmod>2018-09-30T03:17:21.200Z</lastmod>
+    <loc>https://taeroen.github.io/post/2017-03-linux-misc-command.html</loc>
+    <lastmod>2018-09-30T03:17:21.000Z</lastmod>
     <data>
         <display>
-        <title>使用docker搭建gitlab服务</title>
-        <pubTime>2017-03-06T14:18:48.000Z</pubTime>
+        <title>Linux下常见压缩文件的相关操作</title>
+        <pubTime>2017-03-06T06:11:45.000Z</pubTime>
         
-        <tag>docker</tag>
+        <tag>linux</tag>
          
          
            
              
-              <breadCrumb title="git" url="https://taeroen.github.io/categories/git/"/>
+              <breadCrumb title="linux" url="https://taeroen.github.io/categories/linux/"/>
           
         </display>
     </data>
