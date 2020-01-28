@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp     扩展文件名 解压缩 解压缩到指定目录 压缩 可选参数     zip unzip src.zip  unzip">
+  <meta name="description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp  | 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 ||—|—|—|—|—|—||zip|un">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下常见压缩文件的相关操作">
 <meta property="og:url" content="https://taeroen.github.io/post/2017-03-linux-misc-command.html">
 <meta property="og:site_name" content="TaeRoen&#39;s Blog">
-<meta property="og:description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp     扩展文件名 解压缩 解压缩到指定目录 压缩 可选参数     zip unzip src.zip  unzip">
+<meta property="og:description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp  | 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 ||—|—|—|—|—|—||zip|un">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-19T03:37:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下常见压缩文件的相关操作">
-<meta name="twitter:description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp     扩展文件名 解压缩 解压缩到指定目录 压缩 可选参数     zip unzip src.zip  unzip">
+<meta name="twitter:description" content="Linux下常见压缩文件的相关操作Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。  源文件:src.xxx 目标文件:dest.xxx 解压到指定目录:/tmp  | 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 ||—|—|—|—|—|—||zip|un">
 
 <link rel="canonical" href="https://taeroen.github.io/post/2017-03-linux-misc-command.html">
 
@@ -267,54 +267,7 @@
 <li>目标文件:dest.xxx</li>
 <li>解压到指定目录:/tmp</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>扩展文件名</th>
-<th>解压缩</th>
-<th>解压缩到指定目录</th>
-<th>压缩</th>
-<th>可选参数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>zip</td>
-<td>unzip src.zip</td>
-<td></td>
-<td>unzip src.zip dest</td>
-<td></td>
-</tr>
-<tr>
-<td>gz</td>
-<td>gnuzip src.gz</td>
-<td></td>
-<td>gzip src</td>
-<td></td>
-</tr>
-<tr>
-<td>tar</td>
-<td>tar xf src.tar</td>
-<td>tar xf src.tar -C /tmp</td>
-<td>tar cf dest.tar src</td>
-<td>-v 显示过程</td>
-</tr>
-<tr>
-<td>tar.gz/tgz</td>
-<td>tar zxf src.tar.gz</td>
-<td>tar zxf dest.tar.gz -C /tmp</td>
-<td>tar zcf dest.tar.gz src</td>
-<td>-v 显示过程</td>
-</tr>
-<tr>
-<td>tar.bz2</td>
-<td>tar jxf src.tar.bz2</td>
-<td>tar jxf dest.tar.bz2 -C /tmp</td>
-<td>tar jcf dest.tar.bz2 src</td>
-<td>-v 显示过程</td>
-</tr>
-</tbody>
-</table>
+<p>| 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 |<br>|—|—|—|—|—|—|<br>|zip|unzip src.zip| |unzip src.zip dest| |<br>|gz|gnuzip src.gz||gzip src| |<br>|tar|tar xf src.tar|tar xf src.tar -C /tmp|tar cf dest.tar src| -v 显示过程|<br>|tar.gz/tgz|tar zxf src.tar.gz|tar zxf dest.tar.gz -C /tmp|tar zcf dest.tar.gz src| -v 显示过程|<br>|tar.bz2|tar jxf src.tar.bz2|tar jxf dest.tar.bz2 -C /tmp|tar jcf dest.tar.bz2 src| -v 显示过程|</p>
 
     </div>
 
