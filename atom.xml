@@ -27,15 +27,10 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;helm私有charts仓库进阶&quot;&gt;&lt;a href=&quot;#helm私有charts仓库进阶&quot; class=&quot;headerlink&quot; title=&quot;helm私有charts仓库进阶&quot;&gt;&lt;/a&gt;helm私有charts仓库进阶&lt;/h1&gt;&lt;h2 id=&quot;镜像官方仓库&quot;&gt;&lt;a href=&quot;#镜像官方仓库&quot; class=&quot;headerlink&quot; title=&quot;镜像官方仓库&quot;&gt;&lt;/a&gt;镜像官方仓库&lt;/h2&gt;&lt;p&gt;在了解了chart的基本组成结构之后，自己开始动手开始写chart，这时候还是想找一些官方项目看看。官方仓库里面有很多参考，把官方仓库的熟悉项目的chart都看一遍，跑一遍，再尝试修改一遍，其实也就对chart实际上了解的差不多了，剩下的就是到实际项目中实践了。&lt;/p&gt;
-&lt;p&gt;然而官方仓库托管在了google上，这就带来了一个科学上网的问题。本机的还好说，可是服务器上，工具链上就麻烦了，还涉及到内网的问题，所以一开始就想把官方仓库拖下来。&lt;/p&gt;
-&lt;p&gt;首先看一下官方仓库的结构，就一个index.yaml，里面是实际tgz包的地址，对托仓库实在是太友好了。&lt;/p&gt;
-&lt;p&gt;先把yaml文件下载下来:&lt;/p&gt;
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;shell&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; ADDR_PORT为可以科学上网的http代理的地址 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export https_proxy=http://$&amp;#123;ADDR_PORT&amp;#125;/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir helm-mirror &amp;amp;&amp;amp; cd helm-mirror&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget https://kubernetes-charts.storage.googleapis.com/index.yaml -O offical-index.yaml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;看一下yaml文件中chart的下载路径在哪:&lt;/p&gt;
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;yaml&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+      
+      
+        &lt;h1 id=&quot;helm私有charts仓库进阶&quot;&gt;&lt;a href=&quot;#helm私有charts仓库进阶&quot; class=&quot;headerlink&quot; title=&quot;helm私有charts仓库进阶&quot;&gt;&lt;/a&gt;helm私有charts仓库进阶&lt;/h1&gt;&lt;h2 id=&quot;镜像官方仓库&quot;&gt;&lt;
+      
     
     </summary>
     
@@ -60,18 +55,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Quick-start&quot;&gt;&lt;a href=&quot;#Quick-start&quot; class=&quot;headerlink&quot; title=&quot;Quick start&quot;&gt;&lt;/a&gt;Quick start&lt;/h2&gt;&lt;p&gt;这是官方文档中的运行命令&lt;/p&gt;
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;bash&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo docker run --detach \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --hostname gitlab.example.com \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --publish 443:443 --publish 80:80 --publish 22:22 \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --name gitlab \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --restart always \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /srv/gitlab/config:/etc/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /srv/gitlab/logs:/var/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /srv/gitlab/data:/var/opt/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    gitlab/gitlab-ce:latest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-这是我自己搭建时使用的命令
-
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;bash&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo docker run --detach \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --hostname git.taeroen.xyz \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --publish 1443:443 --publish 1080:80 --publish 1022:22 \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --name gitlab-ce \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --restart unless-stopped \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /data/gitlab/config:/etc/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /data/gitlab/logs:/var/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --volume /data/gitlab/data:/var/opt/gitlab:Z \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    gitlab/gitlab-ce:8.17.2-ce.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-两者区别的地方就是可以自定义配置的地方，hostname只是个实例，如果有域名的话可以配成自己的，也可以更改自己的hosts来指向；端口的话随意，内部端口正确即可以；restart策略我更习惯使用unless-stopped，如果我手动stop后不会在下一次开机后重启；挂载目录的话可以看自己的需求，我习惯都挂载/data目录下；最后的tag建议改成一个固定值，实际上就是latest指向的值，这样避免升级时由于版本问题带来可能的bug。
-
-&lt;h2 id=&quot;进阶&quot;&gt;&lt;a href=&quot;#进阶&quot; class=&quot;headerlink&quot; title=&quot;进阶&quot;&gt;&lt;/a&gt;进阶&lt;/h2&gt;&lt;p&gt;实际使用时需要在启动时传一些额外的参数，例如lfs，external_url，可以在启动时添加额外的参数。&lt;/p&gt;
-&lt;p&gt;例如:&lt;/p&gt;
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;bash&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+      
+      
+        &lt;h2 id=&quot;Quick-start&quot;&gt;&lt;a href=&quot;#Quick-start&quot; class=&quot;headerlink&quot; title=&quot;Quick start&quot;&gt;&lt;/a&gt;Quick start&lt;/h2&gt;&lt;p&gt;这是官方文档中的运行命令&lt;/p&gt;
+&lt;p class=&quot;code-ca
+      
     
     </summary>
     
@@ -120,15 +108,10 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Debian8-内核编译&quot;&gt;&lt;a href=&quot;#Debian8-内核编译&quot; class=&quot;headerlink&quot; title=&quot;Debian8 内核编译&quot;&gt;&lt;/a&gt;Debian8 内核编译&lt;/h1&gt;&lt;p&gt;本文介绍两种编译linux内核的方式，一种是debian发行版打过补丁和更改过配置的内核，一种是linux的原版内核。&lt;/p&gt;
-&lt;h2 id=&quot;1-准备编译环境&quot;&gt;&lt;a href=&quot;#1-准备编译环境&quot; class=&quot;headerlink&quot; title=&quot;1 准备编译环境&quot;&gt;&lt;/a&gt;1 准备编译环境&lt;/h2&gt;&lt;p&gt;安装编译工具链&lt;/p&gt;
-&lt;p class=&quot;code-caption&quot; data-lang=&quot;bash&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# apt-get install build-essential kernel-package libncurses5-dev -y&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;2-下载Debian发行版内核源码&quot;&gt;&lt;a href=&quot;#2-下载Debian发行版内核源码&quot; class=&quot;headerlink&quot; title=&quot;2 下载Debian发行版内核源码&quot;&gt;&lt;/a&gt;2 下载Debian发行版内核源码&lt;/h2&gt;&lt;p class=&quot;code-caption&quot; data-lang=&quot;bash&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# apt-get install linux-source-3.16 -y&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;内核源码包安装完成后下载到/user/src目录下&lt;/p&gt;
+      
+      
+        &lt;h1 id=&quot;Debian8-内核编译&quot;&gt;&lt;a href=&quot;#Debian8-内核编译&quot; class=&quot;headerlink&quot; title=&quot;Debian8 内核编译&quot;&gt;&lt;/a&gt;Debian8 内核编译&lt;/h1&gt;&lt;p&gt;本文介绍两种编译linux内核的方式，一种是debian发行
+      
     
     </summary>
     
