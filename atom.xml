@@ -14,7 +14,7 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>helm私有charts仓库进阶</title>
@@ -38,6 +38,7 @@
 &lt;p class=&quot;code-caption&quot; data-lang=&quot;yaml&quot; data-line_number=&quot;frontend&quot; data-trim_indent=&quot;backend&quot; data-label_position=&quot;outer&quot; data-labels_left=&quot;Code&quot; data-labels_right=&quot;:&quot; data-labels_copy=&quot;Copy Code&quot;&gt;&lt;span class=&quot;code-caption-label&quot;&gt;&lt;/span&gt;&lt;/p&gt;
     
     </summary>
+    
     
       <category term="devops" scheme="https://taeroen.github.io/categories/devops/"/>
     
@@ -74,6 +75,7 @@
     
     </summary>
     
+    
       <category term="git" scheme="https://taeroen.github.io/categories/git/"/>
     
     
@@ -98,6 +100,7 @@
       
     
     </summary>
+    
     
       <category term="linux" scheme="https://taeroen.github.io/categories/linux/"/>
     
@@ -128,6 +131,7 @@
 &lt;p&gt;内核源码包安装完成后下载到/user/src目录下&lt;/p&gt;
     
     </summary>
+    
     
       <category term="linux" scheme="https://taeroen.github.io/categories/linux/"/>
     
