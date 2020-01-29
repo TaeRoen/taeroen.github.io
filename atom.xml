@@ -88,15 +88,19 @@
     <link href="https://blog.taeroen.com/post/2017-03-linux-misc-command.html"/>
     <id>https://blog.taeroen.com/post/2017-03-linux-misc-command.html</id>
     <published>2017-03-06T06:11:45.000Z</published>
-    <updated>2020-01-29T12:30:07.235Z</updated>
+    <updated>2020-01-29T14:22:27.970Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Linux下常见压缩文件的相关操作"><a href="#Linux下常见压缩文件的相关操作" class="headerlink" title="Linux下常见压缩文件的相关操作"></a>Linux下常见压缩文件的相关操作</h1><p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p><ul><li>源文件:src.xxx</li><li>目标文件:dest.xxx</li><li>解压到指定目录:/tmp</li></ul><p>| 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 |<br>|—|—|—|—|—|—|<br>|zip|unzip src.zip| |unzip src.zip dest| |<br>|gz|gnuzip src.gz||gzip src| |<br>|tar|tar xf src.tar|tar xf src.tar -C /tmp|tar cf dest.tar src| -v 显示过程|<br>|tar.gz/tgz|tar zxf src.tar.gz|tar zxf dest.tar.gz -C /tmp|tar zcf dest.tar.gz src| -v 显示过程|<br>|tar.bz2|tar jxf src.tar.bz2|tar jxf dest.tar.bz2 -C /tmp|tar jcf dest.tar.bz2 src| -v 显示过程|</p>]]></content>
+    <content type="html"><![CDATA[<p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p><ul><li>源文件:src.xxx</li><li>目标文件:dest.xxx</li><li>解压到指定目录:/tmp</li></ul><hr><p>| 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 |<br>|:—:|:—:|:—:|:—:|:—:|:—:|<br>|zip|unzip src.zip| null |unzip src.zip dest| null |<br>|gz|gnuzip src.gz| null |gzip src| null |<br>|tar|tar xf src.tar|tar xf src.tar -C /tmp|tar cf dest.tar src| -v 显示过程|<br>|tar.gz/tgz|tar zxf src.tar.gz|tar zxf dest.tar.gz -C /tmp|tar zcf dest.tar.gz src| -v 显示过程|<br>|tar.bz2|tar jxf src.tar.bz2|tar jxf dest.tar.bz2 -C /tmp|tar jcf dest.tar.bz2 src| -v 显示过程|</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Linux下常见压缩文件的相关操作&quot;&gt;&lt;a href=&quot;#Linux下常见压缩文件的相关操作&quot; class=&quot;headerlink&quot; title=&quot;Linux下常见压缩文件的相关操作&quot;&gt;&lt;/a&gt;Linux下常见压缩文件的相关操作&lt;/h1&gt;&lt;p&gt;Linux常见的打包
+        &lt;p&gt;Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;源文件:src.xxx&lt;/li&gt;
+&lt;li&gt;目标文件:dest.xxx&lt;/li&gt;
+
       
     
     </summary>
