@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -50,9 +50,9 @@
 <meta property="og:title" content="TaeRoen&#39;s Blog">
 <meta property="og:url" content="https://taeroen.github.io/index.html">
 <meta property="og:site_name" content="TaeRoen&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="TaeRoen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TaeRoen&#39;s Blog">
 
 <link rel="canonical" href="https://taeroen.github.io/">
 
@@ -366,13 +366,15 @@
           <h2 id="Quick-start"><a href="#Quick-start" class="headerlink" title="Quick start"></a>Quick start</h2><p>这是官方文档中的运行命令</p>
 <p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    --volume /srv/gitlab/config:/etc/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/logs:/var/<span class="built_in">log</span>/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/data:/var/opt/gitlab:Z \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+这是我自己搭建时使用的命令
 
-<p>这是我自己搭建时使用的命令</p>
 <p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname git.taeroen.xyz \</span><br><span class="line">    --publish 1443:443 --publish 1080:80 --publish 1022:22 \</span><br><span class="line">    --name gitlab-ce \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --volume /data/gitlab/config:/etc/gitlab:Z \</span><br><span class="line">    --volume /data/gitlab/logs:/var/<span class="built_in">log</span>/gitlab:Z \</span><br><span class="line">    --volume /data/gitlab/data:/var/opt/gitlab:Z \</span><br><span class="line">    gitlab/gitlab-ce:8.17.2-ce.0</span><br></pre></td></tr></table></figure>
+两者区别的地方就是可以自定义配置的地方，hostname只是个实例，如果有域名的话可以配成自己的，也可以更改自己的hosts来指向；端口的话随意，内部端口正确即可以；restart策略我更习惯使用unless-stopped，如果我手动stop后不会在下一次开机后重启；挂载目录的话可以看自己的需求，我习惯都挂载/data目录下；最后的tag建议改成一个固定值，实际上就是latest指向的值，这样避免升级时由于版本问题带来可能的bug。
 
-<p>两者区别的地方就是可以自定义配置的地方，hostname只是个实例，如果有域名的话可以配成自己的，也可以更改自己的hosts来指向；端口的话随意，内部端口正确即可以；restart策略我更习惯使用unless-stopped，如果我手动stop后不会在下一次开机后重启；挂载目录的话可以看自己的需求，我习惯都挂载/data目录下；最后的tag建议改成一个固定值，实际上就是latest指向的值，这样避免升级时由于版本问题带来可能的bug。</p>
 <h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>实际使用时需要在启动时传一些额外的参数，例如lfs，external_url，可以在启动时添加额外的参数。</p>
+<p>例如:</p>
+<p class="code-caption" data-lang="bash" data-line_number="frontend" data-trim_indent="backend" data-label_position="outer" data-labels_left="Code" data-labels_right=":" data-labels_copy="Copy Code"><span class="code-caption-label"></span></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/post/2017-03-gitlab-docker.html#more" rel="contents">
@@ -699,7 +701,7 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/taeroen" title="GitHub → https://github.com/taeroen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/taeroen" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;taeroen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:taeroen@gmail.com" title="E-Mail → mailto:taeroen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
@@ -731,10 +733,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">TaeRoen</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
   </div>
 
         
@@ -845,9 +847,17 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
