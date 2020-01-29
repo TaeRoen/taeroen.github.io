@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://taeroen.github.io/"/>
+  <link href="https://blog.taeroen.com/"/>
   <updated>2020-01-29T12:29:51.667Z</updated>
-  <id>https://taeroen.github.io/</id>
+  <id>https://blog.taeroen.com/</id>
   
   <author>
     <name>TaeRoen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>helm私有charts仓库进阶</title>
-    <link href="https://taeroen.github.io/post/2018-09-kube-helm-repo.html"/>
-    <id>https://taeroen.github.io/post/2018-09-kube-helm-repo.html</id>
+    <link href="https://blog.taeroen.com/post/2018-09-kube-helm-repo.html"/>
+    <id>https://blog.taeroen.com/post/2018-09-kube-helm-repo.html</id>
     <published>2018-09-30T02:31:32.000Z</published>
     <updated>2020-01-29T12:29:51.667Z</updated>
     
@@ -40,19 +40,19 @@
     </summary>
     
     
-      <category term="devops" scheme="https://taeroen.github.io/categories/devops/"/>
+      <category term="devops" scheme="https://blog.taeroen.com/categories/devops/"/>
     
     
-      <category term="kubernetes" scheme="https://taeroen.github.io/tags/kubernetes/"/>
+      <category term="kubernetes" scheme="https://blog.taeroen.com/tags/kubernetes/"/>
     
-      <category term="helm" scheme="https://taeroen.github.io/tags/helm/"/>
+      <category term="helm" scheme="https://blog.taeroen.com/tags/helm/"/>
     
   </entry>
   
   <entry>
     <title>使用docker搭建gitlab服务</title>
-    <link href="https://taeroen.github.io/post/2017-03-gitlab-docker.html"/>
-    <id>https://taeroen.github.io/post/2017-03-gitlab-docker.html</id>
+    <link href="https://blog.taeroen.com/post/2017-03-gitlab-docker.html"/>
+    <id>https://blog.taeroen.com/post/2017-03-gitlab-docker.html</id>
     <published>2017-03-06T14:18:48.000Z</published>
     <updated>2020-01-29T12:29:55.944Z</updated>
     
@@ -76,17 +76,17 @@
     </summary>
     
     
-      <category term="git" scheme="https://taeroen.github.io/categories/git/"/>
+      <category term="git" scheme="https://blog.taeroen.com/categories/git/"/>
     
     
-      <category term="docker" scheme="https://taeroen.github.io/tags/docker/"/>
+      <category term="docker" scheme="https://blog.taeroen.com/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>Linux下常见压缩文件的相关操作</title>
-    <link href="https://taeroen.github.io/post/2017-03-linux-misc-command.html"/>
-    <id>https://taeroen.github.io/post/2017-03-linux-misc-command.html</id>
+    <link href="https://blog.taeroen.com/post/2017-03-linux-misc-command.html"/>
+    <id>https://blog.taeroen.com/post/2017-03-linux-misc-command.html</id>
     <published>2017-03-06T06:11:45.000Z</published>
     <updated>2020-01-29T12:30:07.235Z</updated>
     
@@ -102,17 +102,17 @@
     </summary>
     
     
-      <category term="linux" scheme="https://taeroen.github.io/categories/linux/"/>
+      <category term="linux" scheme="https://blog.taeroen.com/categories/linux/"/>
     
     
-      <category term="linux" scheme="https://taeroen.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://blog.taeroen.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Debian8 内核编译</title>
-    <link href="https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html"/>
-    <id>https://taeroen.github.io/post/2016-12-linux-kernel-compile-debian.html</id>
+    <link href="https://blog.taeroen.com/post/2016-12-linux-kernel-compile-debian.html"/>
+    <id>https://blog.taeroen.com/post/2016-12-linux-kernel-compile-debian.html</id>
     <published>2016-12-17T05:30:48.000Z</published>
     <updated>2020-01-29T12:30:01.566Z</updated>
     
@@ -133,10 +133,10 @@
     </summary>
     
     
-      <category term="linux" scheme="https://taeroen.github.io/categories/linux/"/>
+      <category term="linux" scheme="https://blog.taeroen.com/categories/linux/"/>
     
     
-      <category term="linux" scheme="https://taeroen.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://blog.taeroen.com/tags/linux/"/>
     
   </entry>
   
