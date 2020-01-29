@@ -88,19 +88,18 @@
     <link href="https://blog.taeroen.com/post/2017-03-linux-misc-command.html"/>
     <id>https://blog.taeroen.com/post/2017-03-linux-misc-command.html</id>
     <published>2017-03-06T06:11:45.000Z</published>
-    <updated>2020-01-29T14:22:27.970Z</updated>
+    <updated>2020-01-29T15:09:09.220Z</updated>
     
-    <content type="html"><![CDATA[<p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p><ul><li>源文件:src.xxx</li><li>目标文件:dest.xxx</li><li>解压到指定目录:/tmp</li></ul><hr><p>| 扩展文件名 | 解压缩 | 解压缩到指定目录 | 压缩 | 可选参数 |<br>|:—:|:—:|:—:|:—:|:—:|:—:|<br>|zip|unzip src.zip| null |unzip src.zip dest| null |<br>|gz|gnuzip src.gz| null |gzip src| null |<br>|tar|tar xf src.tar|tar xf src.tar -C /tmp|tar cf dest.tar src| -v 显示过程|<br>|tar.gz/tgz|tar zxf src.tar.gz|tar zxf dest.tar.gz -C /tmp|tar zcf dest.tar.gz src| -v 显示过程|<br>|tar.bz2|tar jxf src.tar.bz2|tar jxf dest.tar.bz2 -C /tmp|tar jcf dest.tar.bz2 src| -v 显示过程|</p>]]></content>
+    <content type="html"><![CDATA[<p>Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。</p><p>源文件:src.xxx</p><p>目标文件:dest.xxx</p><p>解压到指定目录:/tmp</p><hr><table><thead><tr><th align="center">扩展文件名</th><th align="center">解压缩</th><th align="center">解压缩到指定目录</th><th align="center">压缩</th><th align="center">可选参数</th></tr></thead><tbody><tr><td align="center">zip</td><td align="center">unzip src.zip</td><td align="center"></td><td align="center">unzip src.zip dest</td><td align="center"></td></tr><tr><td align="center">gz</td><td align="center">gnuzip src.gz</td><td align="center"></td><td align="center">gzip src</td><td align="center"></td></tr><tr><td align="center">tar</td><td align="center">tar xf src.tar</td><td align="center">tar xf src.tar -C /tmp</td><td align="center">tar cf dest.tar src</td><td align="center">-v 显示过程</td></tr><tr><td align="center">tar.gz/tgz</td><td align="center">tar zxf src.tar.gz</td><td align="center">tar zxf dest.tar.gz -C /tmp</td><td align="center">tar zcf dest.tar.gz src</td><td align="center">-v 显示过程</td></tr><tr><td align="center">tar.bz2</td><td align="center">tar jxf src.tar.bz2</td><td align="center">tar jxf dest.tar.bz2 -C /tmp</td><td align="center">tar jcf dest.tar.bz2 src</td><td align="center">-v 显示过程</td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;Linux常见的打包及压缩文件格式有tar,tar.gz,tar.xz,tar.bz2,zip,虽然命令不多，但是经常容器弄混，在这里用表格整理一下，方便记忆及操作。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;源文件:src.xxx&lt;/li&gt;
-&lt;li&gt;目标文件:dest.xxx&lt;/li&gt;
-
+&lt;p&gt;源文件:src.xxx&lt;/p&gt;
+&lt;p&gt;目标文件:dest.xxx&lt;/p&gt;
+&lt;p&gt;解压到指定目
       
     
     </summary>
